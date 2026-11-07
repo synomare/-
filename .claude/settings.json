@@ -4,7 +4,7 @@
     "SessionStart": [
       {
         "hooks": [
-          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/memory/tools/session_start.py\"" }
+          { "type": "command", "command": "sh \"$CLAUDE_PROJECT_DIR/memory/tools/run.sh\" session_start.py" }
         ]
       }
     ],
@@ -12,7 +12,7 @@
       {
         "matcher": "Write|Edit",
         "hooks": [
-          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/memory/tools/check.py\" --hook" }
+          { "type": "command", "command": "sh \"$CLAUDE_PROJECT_DIR/memory/tools/run.sh\" check.py --hook" }
         ]
       }
     ]

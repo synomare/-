@@ -32,7 +32,8 @@ Claude Code のクラウドセッション向けに作ったもの。
 
 ## journal/
 
-各セッションで 1 ファイル: `journal/YYYY-MM-DD_<ID8文字>.md`。ID8文字は `session_01` に続く 8 文字（例 `2026-11-07_RzuyKJaM.md`）。
+各セッションで 1 ファイル: `journal/YYYY-MM-DD_<ID8文字>.md`。ID8文字はクラウドなら `session_01` に続く 8 文字（例 `2026-11-07_RzuyKJaM.md`）、ローカルならセッション UUID の先頭 8 文字。
+ローカルのセッションのトランスクリプトはその PC にしかなく、クラウドの dreaming からは読めない。そのぶん journal を少し詳しく書く。
 セッション ID（`session_...`）、何をしたか、何を学んだか、どの notes を書いたかを数行で。
 dreaming がどのトランスクリプトを読み直すべきかの目印になる。
 セッション ID は SessionStart フックが最初に表示する。
@@ -58,6 +59,12 @@ bash memory/tools/sync.sh "短い説明"
 何度実行しても安全。別のセッションと同じファイルを同時に変えて衝突したときは止まって知らせる。
 
 ユーザーは `memory/` の変更に限り `main` へ直接プッシュすることを許可している。
+
+## 手元の PC（Windows など）で使う
+
+リポジトリをクローンして Claude Code を起動すれば同じように動く。必要なのは Git（Windows なら Git for Windows。Claude Code 自体が必要とする）と Python 3。
+フックは `tools/run.sh` 経由で `python3` / `python` / `py` のどれかを使う。改行コードは `.gitattributes` で LF に固定している。
+Python が見つからないときフックは何もせずに終わる（作業は止めない）。
 
 ## 自動の dreaming
 

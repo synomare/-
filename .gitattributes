@@ -1,0 +1,5 @@
+# Keep LF line endings on Windows too, so bash/sh scripts run under Git Bash.
+*.sh  text eol=lf
+*.py  text eol=lf
+*.md  text eol=lf
+*.json text eol=lf

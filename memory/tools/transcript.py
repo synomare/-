@@ -66,6 +66,13 @@ def entries(path, with_tools=False):
             yield e.get("timestamp", "")[:19], msg.get("role", e["type"]), txt
 
 
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+
 def main(argv):
     if not argv or argv[0] == "list":
         for f in files():

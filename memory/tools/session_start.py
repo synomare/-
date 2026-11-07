@@ -13,6 +13,13 @@ from pathlib import Path
 MEMORY_DIR = Path(__file__).resolve().parent.parent
 
 
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+
 def main():
     try:
         payload = json.load(sys.stdin)
@@ -33,7 +40,8 @@ def main():
     # the marker holds the last processed journal name (without .md); names sort by date
     pending = [n for n in journal if last == "none" or n[:-3] > last]
 
-    lines = [f"[memory] このセッションの ID: {session_id or '不明'}"]
+    where = "クラウド" if remote else "ローカル。トランスクリプトはこのPCにしかない"
+    lines = [f"[memory] このセッションの ID: {session_id or '不明'}（{where}）"]
     if payload.get("transcript_path"):
         lines.append(f"[memory] ローカルのトランスクリプト: {payload['transcript_path']}")
     lines.append(f"[memory] 最後の dreaming: {last} / それ以降の journal: {len(pending)} 件")

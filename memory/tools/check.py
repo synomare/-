@@ -57,6 +57,13 @@ def check_links():
     return broken
 
 
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+
 def main():
     hook = "--hook" in sys.argv
     if hook:
