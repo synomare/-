@@ -50,7 +50,7 @@ description: 記憶の整理（dreaming）。過去セッションのトラン�
 1. `python3 memory/tools/check.py` を実行し、上限超過や壊れたリンクがあれば直す（記事では 2 回目のパスで存在しないページへのリンク 9 件を修正した）。
 2. `memory/dream-log.md` の説明文の下に今回の記録を追記する（日付、処理した journal、直した誤り、作った/消したページ、昇格・削除した MEMORY.md の項目を数行で）。
 3. 末尾のマーカーを、処理した最後の journal 名（拡張子なし）に更新する: `<!-- last-dream: 2026-11-07_RzuyKJaM -->`。
-4. 作業ブランチにコミット・プッシュする。マージされると次のセッションから反映されることをユーザーに伝える。
+4. `bash memory/tools/sync.sh "dreaming YYYY-MM-DD"` で `main` に届ける。失敗したら理由を報告する。
 
 ## 書かないもの
 
