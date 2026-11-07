@@ -32,7 +32,7 @@ Claude Code のクラウドセッション向けに作ったもの。
 
 ## journal/
 
-各セッションで 1 ファイル: `journal/YYYY-MM-DD_<セッションIDの `session_01` の後の8文字>.md`（例 `2026-11-07_RzuyKJaM.md`）。
+各セッションで 1 ファイル: `journal/YYYY-MM-DD_<ID8文字>.md`。ID8文字は `session_01` に続く 8 文字（例 `2026-11-07_RzuyKJaM.md`）。
 セッション ID（`session_...`）、何をしたか、何を学んだか、どの notes を書いたかを数行で。
 dreaming がどのトランスクリプトを読み直すべきかの目印になる。
 セッション ID は SessionStart フックが最初に表示する。
